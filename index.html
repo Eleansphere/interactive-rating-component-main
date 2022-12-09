@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Interactive rating component</title>
+  </head>
+  <body>
+    <main>
+      <section class="all-flex-center" id="rating-start">
+        <div class="wrapper">
+          <button class="round-button">
+            <img src="./images/icon-star.svg" alt="icon-star" />
+          </button>
+          <h1>How did we do?</h1>
+          <p>
+            Please let us know how we did with your support request.
+            All feedback is appreciated to help us improve our
+            offering!
+          </p>
+          <div class="rating-scale">
+            <button class="round-button" id="rating-button" value="1">
+              1
+            </button>
+            <button class="round-button" id="rating-button" value="2">
+              2
+            </button>
+            <button class="round-button" id="rating-button" value="3">
+              3
+            </button>
+            <button class="round-button" id="rating-button" value="4">
+              4
+            </button>
+            <button class="round-button" id="rating-button" value="5">
+              5
+            </button>
+          </div>
+          <button class="submit-button" onclick="pageChange()">
+            SUBMIT
+          </button>
+        </div>
+      </section>
+      <section class="all-flex-center" id="rating-end">
+        <div class="wrapper">
+          <img
+            src="./images/illustration-thank-you.svg"
+            alt="illustration-thank-you"
+          />
+          <p class="rating-field">
+            You selected <span id="rating-value">0</span> out of 5
+          </p>
+          <h1>Thank you!</h1>
+          <p>
+            We appreciate you taking the time to give a rating. If you
+            ever need more support, don’t hesitate to get in touch!
+          </p>
+        </div>
+      </section>
+    </main>
+    <script>
+      //function for submit button, changing display value
+      function pageChange() {
+        document.getElementById('rating-start').style.display =
+          'none';
+        document.getElementById('rating-end').style.display = 'flex';
+      }
+      //putting all buttons to array by query selector
+      //iterating all buttons and checking which one was clicked
+      //then changing innerHTML value to clicked button
+      buttonList = document.querySelectorAll('#rating-button');
+      for (let i = 0; i < buttonList.length; i++) {
+        buttonList[i].addEventListener('click', () => {
+          document.getElementById('rating-value').innerHTML =
+            buttonList[i].value;
+        });
+      }
+    </script>
+  </body>
+</html>
