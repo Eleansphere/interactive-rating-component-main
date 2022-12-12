@@ -46,7 +46,7 @@
               5
             </button>
           </div>
-          <button class="submit-button" onclick="pageChange()">
+          <button class="submit-button" id="value-check" onclick="pageChange()">
             SUBMIT
           </button>
         </div>
@@ -69,22 +69,39 @@
       </section>
     </main>
     <script>
-      //function for submit button, changing display value
-      function pageChange() {
-        document.getElementById('rating-start').style.display =
-          'none';
-        document.getElementById('rating-end').style.display = 'flex';
-      }
       //putting all buttons to array by query selector
       //iterating all buttons and checking which one was clicked
       //then changing innerHTML value to clicked button
-      buttonList = document.querySelectorAll('#rating-button');
+      var buttonList = document.querySelectorAll('#rating-button');
       for (let i = 0; i < buttonList.length; i++) {
         buttonList[i].addEventListener('click', () => {
           document.getElementById('rating-value').innerHTML =
             buttonList[i].value;
         });
       }
+        /*function for submit button, changing display value,
+          checking if any number was chosen, if not then disable submit button 
+          and start refresh interval by calling resetButton function
+        */
+        function pageChange() {
+          if(document.getElementById('rating-value').innerHTML != 0){
+            document.getElementById('rating-start').style.display =
+          'none';
+          document.getElementById('rating-end').style.display = 'flex';
+        }
+        else{
+          document.querySelector('#value-check').disabled = true;
+          document.querySelector('#value-check').style.opacity = 0.5;
+          setInterval(resetButton,5000);
+        }
+      }
+      function resetButton(){
+          document.querySelector('#value-check').disabled = false;
+          document.querySelector('#value-check').style.opacity = 1;
+        } 
+
+
+    
     </script>
   </body>
 </html>
