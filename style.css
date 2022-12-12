@@ -120,4 +120,7 @@ button:hover{
     .wrapper{
         width: 85%;
     }
+    .all-flex-center{
+        min-width: 375px;
+    }
 }
