@@ -122,13 +122,12 @@ button{
     filter: contrast(85%);
 }
 /* HOVERS */
-button:hover{
+button, input:hover{
     cursor: pointer;
     
 }
 #rating-form input:hover{
     background-color: var(--lightGrey);
-    cursor: pointer;
     transition: 0.2s ease-out;
 }
 .submit-button:hover{
@@ -136,21 +135,3 @@ button:hover{
     color: var(--orange);
     transition: 0.2s ease-in;
 }
-/* FOCUS */
-/* .rating-scale button:focus{
-    background-color: var(--lightGrey);
-} */
-/* RESPONSIVE */
-/* @media only screen and (max-width: 650px) {
-    .wrapper{
-        width: 70%;
-    }
-}
-@media only screen and (max-width: 500px) {
-    .wrapper{
-        width: 85%;
-    }
-    .all-flex-center{
-        min-width: 375px;
-    }
-} */
