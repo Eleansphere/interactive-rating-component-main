@@ -34,6 +34,7 @@ body{
     align-items:flex-start;
     row-gap: 2rem;
     width: 50%;
+    min-width: 365px;
     background-color:var(--darkBlue);
     padding: 2rem;
     border-radius: 2rem;
@@ -44,10 +45,36 @@ body{
     border-radius: 50%;
     background-color: var(--mediumGrey);
 }
-.rating-scale{
+fieldset{
     display: flex;
-    justify-content: space-between;
-    width: 100%;
+    justify-content: space-around;
+    border: none;
+}
+.input-wrapper{
+    position: relative;
+}
+.input-wrapper input + label{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+#rating-form{
+    width:100%;
+    color: var(--white);
+}
+#rating-form input{
+    appearance: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    background-color:var(--darkBlue);
+    filter: contrast(85%);
+}
+#rating-form input:checked{
+    background-color: var(--orange);
 }
 #rating-start{
     display: flex;
@@ -97,21 +124,24 @@ button{
 /* HOVERS */
 button:hover{
     cursor: pointer;
-    transition: 0.2s ease-in;
+    
 }
-.rating-scale button:hover{
-    background-color: var(--orange);
+#rating-form input:hover{
+    background-color: var(--lightGrey);
+    cursor: pointer;
+    transition: 0.2s ease-out;
 }
 .submit-button:hover{
     background-color: var(--white);
     color: var(--orange);
+    transition: 0.2s ease-in;
 }
 /* FOCUS */
-.rating-scale button:focus{
+/* .rating-scale button:focus{
     background-color: var(--lightGrey);
-}
+} */
 /* RESPONSIVE */
-@media only screen and (max-width: 650px) {
+/* @media only screen and (max-width: 650px) {
     .wrapper{
         width: 70%;
     }
@@ -123,4 +153,4 @@ button:hover{
     .all-flex-center{
         min-width: 375px;
     }
-}
+} */
