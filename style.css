@@ -20,9 +20,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1440px;
     min-height: 100vh;
-    margin: 0 auto;
     font-size: 15px;
     font-family: 'Overpass', sans-serif;
     background-color: var(--veryDarkBlue);
@@ -39,7 +37,6 @@ body{
     align-items:flex-start;
     row-gap: 2rem;
     width: 50%;
-    min-width: 365px;
     background-color:var(--darkBlue);
     padding: 2rem;
     border-radius: 2rem;
@@ -61,6 +58,7 @@ fieldset{
 .input-wrapper{
     position: relative;
 }
+
 .input-wrapper input + label{
     position: absolute;
     top: 50%;
@@ -69,11 +67,12 @@ fieldset{
     transition: color 0.3s ease;
     cursor: pointer;
 }
-#rating-form{
+form{
     width:100%;
     color: var(--white);
 }
-#rating-form input{
+
+form input{
     appearance: none;
     border-radius: 50%;
     width: 3rem;
@@ -81,19 +80,21 @@ fieldset{
     background-color:var(--darkBlue);
     filter: contrast(85%);
 }
-#rating-form input:checked{
+
+form input:checked{
     background-color: var(--orange);
 }
-#rating-start{
+section:nth-child(odd){
     display: flex;
 }
-#rating-end{
+section:nth-child(even){
     display: none;
 }
-#rating-end>.wrapper{
+section:nth-child(even)>.wrapper{
     align-items: center;
     text-align: center;
 }
+
 /* STYLING */
 .rating-field{
     padding: 0.4rem 2rem;
@@ -116,11 +117,11 @@ button{
     color: var(--white);
 }
 
-button:disabled{
+.submit-button:disabled{
     opacity: .4;
 }
 
-button:disabled:hover{
+.submit-button:disabled:hover{
     cursor:not-allowed;
     background-color: var(--orange);
     color: var(--white);
@@ -147,7 +148,7 @@ button, input:hover{
     cursor: pointer;  
 }
 
-#rating-form input:hover{
+section input:hover{
     background-color: var(--lightGrey);
     transition: 0.2s ease-out;
 }

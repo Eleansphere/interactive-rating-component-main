@@ -2,8 +2,7 @@
 const ratingButtons = document.querySelectorAll('input');
 const ratingValue = document.getElementById('rating-value');
 const submitBtn = document.getElementById('submitBtn');
-const ratingStart = document.getElementById('rating-start');
-const ratingEnd = document.getElementById('rating-end');
+const sections = document.querySelectorAll('section');
 
 ratingValue.innerText = 0;
 
@@ -22,8 +21,8 @@ ratingValue.innerText = 0;
     if (
       ratingValue.innerText != 0
     ) {
-      ratingStart.style.display = 'none';
-      ratingEnd.style.display = 'flex';
+      sections[0].style.display = 'none';
+      sections[1].style.display = 'flex';
       //resetting checked state before reload
       ratingButtons.forEach((item)=>{
         item.checked = false;
