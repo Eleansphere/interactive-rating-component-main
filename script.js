@@ -12,6 +12,7 @@ ratingValue.innerText = 0;
     item.addEventListener("click", ()=>{
       ratingValue.innerText = item.value;
   //inserting value
+      console.log(`${item.value}`);
     });
   });
 
@@ -23,10 +24,14 @@ ratingValue.innerText = 0;
     ) {
       ratingStart.style.display = 'none';
       ratingEnd.style.display = 'flex';
-      setInterval(()=>{location.reload()},3500);
+      //resetting checked state before reload
+      ratingButtons.forEach((item)=>{
+        item.checked = false;
+      });
+      setInterval(()=>{location.reload()},4000);
     } else {
       submitBtn.disabled = true;
-      submitBtn.style.opacity = 0.2;
+      
       setInterval(resetButton, 3500);
     }
   });
@@ -35,5 +40,5 @@ ratingValue.innerText = 0;
 //reset button
   function resetButton() {
     submitBtn.disabled = false;
-    submitBtn.style.opacity = 1;
+    
   }
