@@ -10,8 +10,8 @@ ratingValue.innerText = 0;
 //control click on radio
   ratingButtons.forEach((item)=>{
     item.addEventListener("click", ()=>{
+//inserting value
       ratingValue.innerText = item.value;
-  //inserting value
       console.log(`${item.value}`);
     });
   });
@@ -30,15 +30,7 @@ ratingValue.innerText = 0;
       });
       setInterval(()=>{location.reload()},4000);
     } else {
-      submitBtn.disabled = true;
-      
-      setInterval(resetButton, 3500);
+      submitBtn.disabled = true;      
+      setInterval(()=>{submitBtn.disabled = false}, 3500);
     }
   });
-
- 
-//reset button
-  function resetButton() {
-    submitBtn.disabled = false;
-    
-  }
