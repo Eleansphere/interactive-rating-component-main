@@ -1,25 +1,31 @@
-document.getElementById('rating-form').onclick = function () {
-    const getRadio = document.querySelector(
-      'input[name = rating]:checked'
-    ).value;
-    document.getElementById('rating-value').innerHTML = getRadio;
-  };
-
+//DOM model data
+const arrBtn = document.querySelectorAll('input');
+const ratingValue = document.getElementById('rating-value');
+const btn = document.getElementById('value-check');
+const ratingStart = document.getElementById('rating-start');
+const ratingEnd = document.getElementById('rating-end');
+//control click on radio
+arrBtn.forEach((item)=>{
+  item.addEventListener("click", ()=>{
+    ratingValue.innerHTML = item.value;
+//inserting value
+  });
+});
+// changing the page
   function pageChange() {
     if (
-      document.getElementById('rating-value').innerHTML != '0'
+      ratingValue != '0'
     ) {
-      document.getElementById('rating-start').style.display =
-        'none';
-      document.getElementById('rating-end').style.display =
-        'flex';
+      ratingStart.style.display = 'none';
+      ratingEnd.style.display = 'flex';
     } else {
-      document.querySelector('#value-check').disabled = true;
-      document.querySelector('#value-check').style.opacity = 0.2;
+      btn.disabled = true;
+      btn.style.opacity = 0.2;
       setInterval(resetButton, 3500);
     }
   }
+//reset button
   function resetButton() {
-    document.querySelector('#value-check').disabled = false;
-    document.querySelector('#value-check').style.opacity = 1;
+    btn.disabled = false;
+    btn.style.opacity = 1;
   }
