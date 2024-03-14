@@ -1,31 +1,39 @@
-//DOM model data
-const arrBtn = document.querySelectorAll('input');
+//DOM 
+const ratingButtons = document.querySelectorAll('input');
 const ratingValue = document.getElementById('rating-value');
-const btn = document.getElementById('value-check');
+const submitBtn = document.getElementById('submitBtn');
 const ratingStart = document.getElementById('rating-start');
 const ratingEnd = document.getElementById('rating-end');
+
+ratingValue.innerText = 0;
+
 //control click on radio
-arrBtn.forEach((item)=>{
-  item.addEventListener("click", ()=>{
-    ratingValue.innerHTML = item.value;
-//inserting value
+  ratingButtons.forEach((item)=>{
+    item.addEventListener("click", ()=>{
+      ratingValue.innerText = item.value;
+  //inserting value
+    });
   });
-});
-// changing the page
-  function pageChange() {
+
+  // changing the page
+
+  submitBtn.addEventListener("click",()=>{
     if (
-      ratingValue != '0'
+      ratingValue.innerText != 0
     ) {
       ratingStart.style.display = 'none';
       ratingEnd.style.display = 'flex';
+      setInterval(()=>{location.reload()},3500);
     } else {
-      btn.disabled = true;
-      btn.style.opacity = 0.2;
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = 0.2;
       setInterval(resetButton, 3500);
     }
-  }
+  });
+
+ 
 //reset button
   function resetButton() {
-    btn.disabled = false;
-    btn.style.opacity = 1;
+    submitBtn.disabled = false;
+    submitBtn.style.opacity = 1;
   }
