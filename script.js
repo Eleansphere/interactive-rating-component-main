@@ -11,7 +11,6 @@ ratingValue.innerText = 0;
     item.addEventListener("click", ()=>{
 //inserting value
       ratingValue.innerText = item.value;
-      console.log(`${item.value}`);
     });
   });
 
