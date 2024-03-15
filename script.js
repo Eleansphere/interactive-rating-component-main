@@ -13,9 +13,7 @@ ratingValue.innerText = 0;
       ratingValue.innerText = item.value;
     });
   });
-
   // changing the page
-
   submitBtn.addEventListener("click",()=>{
     if (
       ratingValue.innerText != 0
