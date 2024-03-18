@@ -24,6 +24,7 @@ body{
     font-size: 15px;
     font-family: 'Overpass', sans-serif;
     background-color: var(--veryDarkBlue);
+    color: var(--white);
 }
 
 .all-flex-center{
@@ -34,9 +35,8 @@ body{
 .wrapper{
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
     row-gap: 2rem;
-    width: 50%;
+    max-width: 400px;
     background-color:var(--darkBlue);
     padding: 2rem;
     border-radius: 2rem;
@@ -52,7 +52,6 @@ body{
 fieldset{
     display: flex;
     justify-content: space-around;
-    border: none;
 }
 
 .input-wrapper{
@@ -67,10 +66,6 @@ fieldset{
     transition: color 0.3s ease;
     cursor: pointer;
 }
-form{
-    width:100%;
-    color: var(--white);
-}
 
 form input{
     appearance: none;
@@ -79,6 +74,7 @@ form input{
     height: 3rem;
     background-color:var(--darkBlue);
     filter: contrast(85%);
+    transition: 0.2s ease-out;
 }
 
 form input:checked{
@@ -103,19 +99,11 @@ section:nth-child(even)>.wrapper{
     filter: contrast(85%);
     border-radius: 1rem;
 }
-h1{
-    font-weight: 700;
-    color: var(--white);
-}
+
 p{
     color: var(--lightGrey);
 }
 /* BUTTONS */
-button{
-    border: none;
-    font-weight: 700;
-    color: var(--white);
-}
 
 .submit-button:disabled{
     opacity: .4;
@@ -127,8 +115,13 @@ button{
     color: var(--white);
 }
 
+button, fieldset{
+    border: none;
+}
+
 .submit-button{
-    width: 100%;
+    font-weight: 700;
+    color: var(--white);
     border-radius: 2rem;
     padding: 1rem 0;
     letter-spacing: 4px;
@@ -149,8 +142,7 @@ button, input:hover{
 }
 
 section input:hover{
-    background-color: var(--lightGrey);
-    transition: 0.2s ease-out;
+    background-color: var(--lightGrey);    
 }
 
 .submit-button:hover{
@@ -159,3 +151,8 @@ section input:hover{
     transition: 0.2s ease-in;
 }
 
+@media only screen and (max-width: 450px){
+    body{
+        padding: 0 .8rem;
+    }
+}
